@@ -28,30 +28,27 @@ while True:
 ### The number of bad guesses is limited to 8
 
     while len(bad_guess_letters) < 8 and len(good_guess_letters) != len(list(word_to_guess)):
-
-### Drawing guessed letters, spaces, and turns to show the game board
-
-        #print("The Secret Word to guess is...{} ".format(word_to_guess))
-        print("The Secret Word to guess is... ")
-        for letter in word_to_guess:
-            if letter in good_guess_letters:
-                print(letter, end='')
-            else:
-                print('_ ', end='')
-
 ### Message letting the user know how many letters are in the word and how many turns they have left.
 
-        print('\n')
+        print('')
         print("{}, there are a Total of {} letters in the word".format(name, len(list(word_to_guess))))
         print('You have used {} of 8 turns. Only {} more left'.format(len(bad_guess_letters), 8 - len(bad_guess_letters)))
         print('')
 
-### Take the user's guess
+### Drawing guessed letters, spaces, and turns to show the game board
 
-        print("_______________")
+        #print("The Secret Word to guess is...{} ".format(word_to_guess))
+        print("\nThe Secret Word to guess is...\n")
+        for letter in word_to_guess:
+            if letter in good_guess_letters:
+                print(letter + " ", end='')
+            else:
+                print('_ ', end='')
+
+### Take the user's guess
+        print("\n")
         guess = input("Guess a letter: ").lower()
         print("_______________")
-        print("\n")
 
 ### Error messages if user inputs a number, more than one letter, or a letter that has already been used.
 
@@ -74,16 +71,18 @@ while True:
             good_guess_letters.append(guess)
             print("Great Job... That letter is in the word. See below and keep going...")
             if len(good_guess_letters) == len(list(word_to_guess)):
-                print("Congratulations... You win! The word is {}!".format(word_to_guess))
+                word_to_guess = word_to_guess.upper()
+                print("Congratulations... YOU WIN! The word is {}!".format(word_to_guess))
                 break
 
 ### If the user enters letters that are not in the word they are guessing
 
         else:
             bad_guess_letters.append(guess)
-            print("The letter(s) {} is(are) NOT in the word... Try again!".format(bad_guess_letters))
+            print("The letter '{}' is NOT in the word... \nHere are the letters not in the word, {} Try again!".format(guess, bad_guess_letters))
 
 ### If the while loop ends because the user has used up their 8 turns
     else:
-        print("You are out of turns! The word was '{}'. Game Over!".format(word_to_guess))
+        word_to_guess = word_to_guess.upper()
+        print("\nSorry... You are out of turns! The word was '{}'. Game Over!".format(word_to_guess))
         break
