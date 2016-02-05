@@ -18,22 +18,21 @@ used_characters = ""
 counter = 0
 print("\n")
 print(guess_word)
-print(word_display)
 
-print(name + ", There are {} letters in the word, You have {} tries to guess the word correctly...".format(len(guess_word), -int(counter) + 8))
+turn_counter = 8
+print(name + ", There are {} letters in the word, You have {} tries to guess the word correctly...".format(len(guess_word),turn_counter))
+print("\n")
 
-while counter < 8:
+while True:
+    print(word_display)
+    guess = input("Guess a letter?")
     for character in guess_word:
-        guess = input("Guess a letter?")
         if character == guess:
             word_display[counter] = guess
-            print("That letter is in the word, You have {} more guesses".format(counter))
-            guess = input("Guess another letter?")
-            print("You have {} guesses left".format(counter))
-        else:
-            counter += 1
-            print("That letter is Not in the word")
-            guess = input("Guess another letter")
+            print("\n")
+            print("That letter is in the word, You have {} more guesses".format(turn_counter))
+        counter += 1
+
 
 
 print(str(guess_word))
