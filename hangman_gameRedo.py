@@ -57,14 +57,13 @@ while True:
 
         if len(guess) != 1:
             print("{}, you can only guess one letter at a time!".format(name))
-            continue
         elif len(guess) == 0:
             print("You did not enter a letter... Try again")
         elif guess in bad_guess_letters or guess in good_guess_letters:
             print("{}, that letter has already been used or guessed incorrectly!".format(name))
-            continue
         elif not guess.isalpha():
             print("{}, you can only guess a letter!".format(name))
+            continue
 
 ### If the user enters letters that are in the word they are guessing
 
@@ -83,5 +82,5 @@ while True:
 
 ### If the while loop ends because the user has used up their 8 turns
     else:
-        print("You are out of turns! The word was {}. Game Over!".format(word_to_guess))
+        print("You are out of turns! The word was '{}'. Game Over!".format(word_to_guess))
         break
