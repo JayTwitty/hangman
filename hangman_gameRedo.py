@@ -55,12 +55,15 @@ while True:
 
 ### Error messages if user inputs a number, more than one letter, or a letter that has already been used.
 
-        if len(guess) != 1:
-            print("{}, you can only guess one letter at a time!".format(name))
-        elif len(guess) == 0:
+        if len(guess) == 0:
             print("You did not enter a letter... Try again")
+            continue
+        elif len(guess) != 1:
+            print("{}, you can only guess one letter at a time!".format(name))
+            continue
         elif guess in bad_guess_letters or guess in good_guess_letters:
             print("{}, that letter has already been used or guessed incorrectly!".format(name))
+            continue
         elif not guess.isalpha():
             print("{}, you can only guess a letter!".format(name))
             continue
@@ -78,7 +81,7 @@ while True:
 
         else:
             bad_guess_letters.append(guess)
-            print("The letter(s) {} is NOT in the word... Try again!".format(bad_guess_letters))
+            print("The letter(s) {} is(are) NOT in the word... Try again!".format(bad_guess_letters))
 
 ### If the while loop ends because the user has used up their 8 turns
     else:
