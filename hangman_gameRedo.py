@@ -38,7 +38,7 @@ while True:
 
 ### Drawing guessed letters, spaces, and turns to show the game board
 
-        print("The Secret Word to guess is...{} ".format(word_to_guess))
+        #print("The Secret Word to guess is...{} ".format(word_to_guess))
         print("\nThe Secret Word to guess is...\n")
         for letter in word_to_guess:
             if letter in good_guess_letters:
