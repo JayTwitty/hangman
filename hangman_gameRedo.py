@@ -1,7 +1,7 @@
 
 ### This is a Welcome Message that asks the user to enter their name and stores their name as a variable.
-
-while True:
+hangman = True
+while hangman:
     print('')
     print("Welcome to the Mystery Word Game App!")
     print('')
@@ -32,8 +32,8 @@ while True:
 ### Message letting the user know how many letters are in the word and how many turns they have left.
 
         print('')
-        print("{}, there are a Total of {} letters in the word".format(name, len(list(word_to_guess))))
-        print('You have used {} of 8 turns. Only {} more left'.format(len(bad_guess_letters), 8 - len(bad_guess_letters)))
+        print("     {}, there are a Total of {} letters in the word".format(name, len(list(word_to_guess))))
+        print('     You have used {} of 8 incorrect guesses. Only {} more left'.format(len(bad_guess_letters), 8 - len(bad_guess_letters)))
         print('')
 
 ### Drawing guessed letters, spaces, and turns to show the game board
@@ -70,15 +70,12 @@ while True:
 
         if guess in word_to_guess:
             good_guess_letters.append(guess)
-            print("Great Job... That letter is in the word. See below and keep going...")
-            if len(good_guess_letters) == len(list(set(word_to_guess))):
-                print("Congratulations... YOU WIN! The word is {}!".format(word_to_guess))
+            if len(good_guess_letters) == len(set(list(word_to_guess))):
+                word_to_guess = word_to_guess.upper()
+                print("Congratulations... YOU WIN! The word is {}! Game Over!".format(word_to_guess))
                 break
-
-
-
-
-
+            hangman = False
+            print("Great Job... That letter is in the word. See below and keep going...")
 
 ### If the user enters letters that are not in the word they are guessing
 
