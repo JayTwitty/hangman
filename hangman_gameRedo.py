@@ -21,6 +21,7 @@ while True:
 
     import random
     word_to_guess = random.choice(contents).rstrip("\n")
+    word_to_guess = word_to_guess.lower()
     bad_guess_letters = []
     good_guess_letters = []
 
@@ -37,7 +38,7 @@ while True:
 
 ### Drawing guessed letters, spaces, and turns to show the game board
 
-        #print("The Secret Word to guess is...{} ".format(word_to_guess))
+        print("The Secret Word to guess is...{} ".format(word_to_guess))
         print("\nThe Secret Word to guess is...\n")
         for letter in word_to_guess:
             if letter in good_guess_letters:
@@ -70,10 +71,14 @@ while True:
         if guess in word_to_guess:
             good_guess_letters.append(guess)
             print("Great Job... That letter is in the word. See below and keep going...")
-            if len(good_guess_letters) == len(list(word_to_guess)):
-                word_to_guess = word_to_guess.upper()
+            if len(good_guess_letters) == len(list(set(word_to_guess))):
                 print("Congratulations... YOU WIN! The word is {}!".format(word_to_guess))
                 break
+
+
+
+
+
 
 ### If the user enters letters that are not in the word they are guessing
 
