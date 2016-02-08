@@ -1,5 +1,9 @@
 
+
+
+
 ### This is a Welcome Message that asks the user to enter their name and stores their name as a variable.
+
 hangman = True
 while hangman:
     print('')
@@ -29,6 +33,7 @@ while hangman:
 ### The number of bad guesses is limited to 8
 
     while len(bad_guess_letters) < 8 and len(good_guess_letters) != len(list(word_to_guess)):
+
 ### Message letting the user know how many letters are in the word and how many turns they have left.
 
         print('')
@@ -38,6 +43,7 @@ while hangman:
 
 ### Drawing guessed letters, spaces, and turns to show the game board
 
+        ### ***Hidden Cheat Code*** ###
         #print("The Secret Word to guess is...{} ".format(word_to_guess))
         print("\nThe Secret Word to guess is...\n")
         for letter in word_to_guess:
@@ -54,13 +60,13 @@ while hangman:
 ### Error messages if user inputs a number, more than one letter, or a letter that has already been used.
 
         if len(guess) == 0:
-            print("You did not enter a letter... Try again")
+            print("You did not enter a letter... Try again!")
             continue
         elif len(guess) != 1:
-            print("{}, you can only guess one letter at a time!".format(name))
+            print("{}, you can only guess one letter at a time... Try again!".format(name))
             continue
         elif guess in bad_guess_letters or guess in good_guess_letters:
-            print("{}, that letter has already been used or guessed incorrectly!".format(name))
+            print("{}, that letter has already been chosen... These letters {} are not in the Mystery Word, Try again!".format(name, bad_guess_letters))
             continue
         elif not guess.isalpha():
             print("{}, you can only guess a letter!".format(name))
@@ -84,6 +90,7 @@ while hangman:
             print("The letter '{}' is NOT in the word... \nHere are the letters not in the word, {} Try again!".format(guess, bad_guess_letters))
 
 ### If the while loop ends because the user has used up their 8 turns
+
     else:
         word_to_guess = word_to_guess.upper()
         print("\nSorry... You are out of turns! The word was '{}'. Game Over!".format(word_to_guess))
