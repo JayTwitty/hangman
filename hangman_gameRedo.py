@@ -94,4 +94,10 @@ while hangman:
     else:
         word_to_guess = word_to_guess.upper()
         print("\nSorry... You are out of turns! The word was '{}'. Game Over!".format(word_to_guess))
-        break
+    print("=" * 20)
+    keep_playing = input("Would you like to play again? (Enter 'Y' for Yes and 'N' for No)").lower()
+    if keep_playing == "y":
+        hangman = True
+        print("\n\n\n")
+    else:
+        hangman = False
